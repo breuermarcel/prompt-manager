@@ -30,5 +30,7 @@ Nutzer können Prompts in einer übersichtlichen UI durchsuchen, kategorisieren 
 ## 🌟 Roadmap
 
 ✅ MVP mit statischer JSON-Datei
+
 🔜 Filter-/Suchfunktion für Prompts
+
 🔜 Backend zur dynamischen Verwaltung der Prompts
