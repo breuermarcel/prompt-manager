@@ -1,7 +1,7 @@
 [
     {
-        "category": "Business",
-        "title": "E-Mail-Template erstellen",
+        "category": "E-Mail",
+        "title": "Antwort an eine E-Mail",
         "description": "Erstellt ein Antwort für eine E-Mail.",
         "gpt_link": "",
         "prompt": "Erstelle eine Antwort auf die folgende E-Mail: [E-Mail einfügen]. Schreibe eine professionelle, klare und ansprechende Antwort, die einen positiven Ton beibehält und meine wichtigsten Punkte effektiv vermittelt."
