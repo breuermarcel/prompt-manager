@@ -1,0 +1,23 @@
+[
+    {
+        "category": "Marketing",
+        "title": "Produktbeschreibung erstellen",
+        "description": "Erstellt eine kreative Produktbeschreibung für ein neues Gadget.",
+        "gpt_link": "https://chatgpt.com/gpts/123456",
+        "prompt": "Erstelle eine kreative und ansprechende Produktbeschreibung für ein neues technologisches Gadget."
+    },
+    {
+        "category": "Programmierung",
+        "title": "JavaScript Debugging",
+        "description": "Hilft beim Debuggen von JavaScript-Code.",
+        "gpt_link": "https://chatgpt.com/gpts/654321",
+        "prompt": "Finde und erkläre die Fehler in folgendem JavaScript-Code: ```console.log(x)```"
+    },
+    {
+        "category": "Content Writing",
+        "title": "Blogpost-Ideen generieren",
+        "description": "Generiert kreative Ideen für Blogposts zu einem bestimmten Thema.",
+        "gpt_link": "https://chatgpt.com/gpts/789101",
+        "prompt": "Erstelle eine Liste mit kreativen Blogpost-Ideen zum Thema 'Künstliche Intelligenz im Alltag'."
+    }
+]
