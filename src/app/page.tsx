@@ -74,6 +74,13 @@ export default function Home() {
               <h2 className="font-bold text-lg">{prompt.title}</h2>
               <p className="text-gray-700">{prompt.description}</p>
               <div className="flex space-x-2 mt-3">
+                <button
+                  onClick={() => copyToClipboard(prompt.prompt)}
+                  className="bg-white px-4 py-2 border-1 border-green-800 rounded cursor-pointer"
+                >
+                  Kopieren
+                </button>
+
                 <a
                   href={isLinkValid ? prompt.gpt_link : undefined}
                   target="_blank"
@@ -86,13 +93,6 @@ export default function Home() {
                 >
                   Testen
                 </a>
-
-                <button
-                  onClick={() => copyToClipboard(prompt.prompt)}
-                  className="bg-white px-4 py-2 border-1 border-green-800 rounded cursor-pointer"
-                >
-                  Kopieren
-                </button>
               </div>
             </div>
           );
