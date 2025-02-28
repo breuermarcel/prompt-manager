@@ -39,10 +39,10 @@ export default function Home() {
   };
 
   return (
-    <div className="relative mx-auto p-6 max-w-4xl">
-      <h1 className="mb-6 font-bold text-3xl text-center">Prompt Manager</h1>
+    <div className="relative max-w-4xl p-6 mx-auto">
+      <h1 className="mb-6 text-3xl font-bold text-center">Prompt Manager</h1>
 
-      <p className="mx-auto mb-6 max-w-2xl text-gray-600 text-center">
+      <p className="max-w-2xl mx-auto mb-6 text-center text-gray-600">
         Der Prompt Manager bietet eine kuratierte Sammlung von <b>ChatGPT-Prompts</b>,
         die in Kategorien unterteilt sind. Nutzer können Prompts durchsuchen,
         direkt mit einem spezialisierten GPT testen oder den Prompt für eigene Zwecke
@@ -51,7 +51,7 @@ export default function Home() {
       </p>
 
       {/* Categories */}
-      <div className="flex space-x-2 mb-6 overflow-x-auto">
+      <div className="flex mb-6 space-x-2 overflow-x-auto">
         {categories.map((category) => (
           <button
             key={category}
@@ -65,18 +65,18 @@ export default function Home() {
       </div>
 
       {/* Prompt Cards */}
-      <div className="gap-4 grid md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         {filteredPrompts.map((prompt, index) => {
           const isLinkValid = prompt.gpt_link.trim().length > 0;
 
           return (
-            <div key={index} className="shadow p-4 border rounded-lg">
-              <h2 className="font-bold text-lg">{prompt.title}</h2>
+            <div key={index} className="p-4 border rounded-lg shadow">
+              <h2 className="text-lg font-bold">{prompt.title}</h2>
               <p className="text-gray-700">{prompt.description}</p>
-              <div className="flex space-x-2 mt-3">
+              <div className="flex mt-3 space-x-2">
                 <button
                   onClick={() => copyToClipboard(prompt.prompt)}
-                  className="bg-white px-4 py-2 border-1 border-green-800 rounded cursor-pointer"
+                  className="px-4 py-2 bg-white border-green-800 rounded cursor-pointer border-1"
                 >
                   Kopieren
                 </button>
@@ -105,7 +105,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          className="bottom-5 left-1/2 fixed bg-green-500 shadow-lg px-4 py-2 rounded-lg text-white -translate-x-1/2 transform"
+          className="fixed px-4 py-2 text-white transform -translate-x-1/2 bg-green-500 rounded-lg shadow-lg bottom-5 left-1/2"
         >
           {copyMessage}
         </motion.div>
