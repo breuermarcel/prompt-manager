@@ -6,8 +6,6 @@ export const metadata: Metadata = {
   description: "Der Prompt Manager kategorisiert und veröffentlicht ChatGPT-Prompts, sodass sie einfach durchsucht, getestet und in die Zwischenablage kopiert werden können. Ideal für alle, die ihre AI-Workflows optimieren möchten!",
 };
 
-const getCurrentYear = () => new Date().getFullYear();
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,7 +17,7 @@ export default function RootLayout({
         {children}
 
         <footer className="bottom-0 absolute p-6 w-full text-gray-600 text-center">
-          <p>&copy; Marcel Breuer {getCurrentYear()} </p>
+          <p>&copy; Marcel Breuer {new Date().getFullYear()} </p>
         </footer>
       </body>
     </html>
