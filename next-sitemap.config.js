@@ -8,9 +8,6 @@ module.exports = {
                 userAgent: '*',
                 allow: '/',
             },
-        ],
-        additionalSitemaps: [
-            'https://prompt-manager.marcel-breuer.net/sitemap.xml',
-        ],
+        ]
     },
 };
