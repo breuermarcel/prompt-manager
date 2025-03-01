@@ -16,7 +16,7 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
 
-        <footer className="bottom-0 absolute p-6 w-full text-gray-600 text-center">
+        <footer className="pb-4 w-full text-gray-600 text-center -6">
           <p>&copy; Marcel Breuer {new Date().getFullYear()} </p>
         </footer>
       </body>
