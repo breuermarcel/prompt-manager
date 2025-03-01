@@ -56,7 +56,7 @@ export default function Home() {
           <button
             key={category}
             onClick={() => filterByCategory(category)}
-            className={`px-4 py-2 rounded-lg cursor-pointer whitespace-nowrap text-sm ${selectedCategory === category ? "bg-green-800 text-white" : "bg-gray-200"
+            className={`px-4 py-2 rounded-lg cursor-pointer whitespace-nowrap text-sm ${selectedCategory === category ? "bg-green-800 text-white" : "bg-gray-200 dark:bg-gray-800"
               }`}
           >
             {category}
@@ -72,11 +72,11 @@ export default function Home() {
           return (
             <div key={index} className="shadow p-4 border rounded-lg">
               <h2 className="font-bold text-lg">{prompt.title}</h2>
-              <p className="text-gray-700">{prompt.description}</p>
+              <p className="text-gray-700 dark:text-gray-400">{prompt.description}</p>
               <div className="flex space-x-2 mt-3">
                 <button
                   onClick={() => copyToClipboard(prompt.prompt)}
-                  className="bg-white px-4 py-2 border-1 border-green-800 rounded cursor-pointer"
+                  className="bg-white dark:bg-green-800 px-4 py-2 border-1 border-green-800 rounded cursor-pointer"
                 >
                   Kopieren
                 </button>
@@ -87,7 +87,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className={`px-4 py-2 rounded ${isLinkValid
                     ? "bg-green-800 text-white cursor-pointer"
-                    : "bg-green-100 text-gray-500 cursor-not-allowed"
+                    : "bg-green-100 dark:text-gray-800 text-gray-500 cursor-not-allowed"
                     }`}
                   onClick={(e) => !isLinkValid && e.preventDefault()}
                 >
