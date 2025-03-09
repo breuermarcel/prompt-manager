@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, isValidElement } from "react";
 import { Prompt } from "../types/prompt";
 import { motion } from "framer-motion";
 
@@ -56,7 +56,7 @@ export default function Home() {
           <button
             key={category}
             onClick={() => filterByCategory(category)}
-            className={`px-4 py-2 rounded-lg cursor-pointer whitespace-nowrap text-sm ${selectedCategory === category ? "bg-green-800 text-white" : "bg-gray-200 dark:bg-gray-800"
+            className={`px-4 py-2 rounded-lg cursor-pointer whitespace-nowrap ${selectedCategory === category ? "bg-green-800 text-white" : "bg-gray-200 dark:bg-gray-800"
               }`}
           >
             {category}
@@ -76,23 +76,25 @@ export default function Home() {
               <div className="flex space-x-2 mt-3">
                 <button
                   onClick={() => copyToClipboard(prompt.prompt)}
-                  className="bg-white dark:bg-green-800 px-4 py-2 border-1 border-green-800 rounded cursor-pointer"
+                  className="bg-white dark:bg-green-800 px-4 py-1 border-1 border-green-800 rounded cursor-pointer"
                 >
                   Kopieren
                 </button>
 
-                <a
-                  href={isLinkValid ? prompt.gpt_link : '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`px-4 py-2 rounded ${isLinkValid
-                    ? "bg-green-800 text-white cursor-pointer"
-                    : "bg-green-100 dark:text-gray-800 text-gray-500 cursor-not-allowed"
-                    }`}
-                  onClick={(e) => !isLinkValid && e.preventDefault()}
-                >
-                  Testen
-                </a>
+                {isLinkValid && (
+                  <a
+                    href={isLinkValid ? prompt.gpt_link : '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`px-4 py-2 rounded ${isLinkValid
+                      ? "bg-green-800 text-white cursor-pointer"
+                      : "bg-green-100 dark:text-gray-800 text-gray-500 cursor-not-allowed"
+                      }`}
+                    onClick={(e) => !isLinkValid && e.preventDefault()}
+                  >
+                    Testen
+                  </a>
+                )}
               </div>
             </div>
           );
