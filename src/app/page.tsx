@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, isValidElement } from "react";
+import { useState, useEffect } from "react";
 import { Prompt } from "../types/prompt";
 import { motion } from "framer-motion";
 
