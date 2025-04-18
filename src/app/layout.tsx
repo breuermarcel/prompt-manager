@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Sen } from 'next/font/google'
 import './globals.css'
 
+import { ReactNode } from 'react'
+
 export const metadata: Metadata = {
   title: 'Marcel Breuer | Prompt Manager',
   description:
@@ -10,11 +12,11 @@ export const metadata: Metadata = {
 
 const font = Sen({ subsets: ['latin'] })
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+interface RootLayoutProps {
+  children: ReactNode
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="de">
       <body className={font.className}>
