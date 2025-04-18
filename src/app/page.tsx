@@ -12,7 +12,7 @@ export default function Home() {
   const [copyMessage, setCopyMessage] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('/prompts.json')
+    fetch('/json/prompts.json')
       .then((res) => res.json())
       .then((data: Prompt[]) => {
         setPrompts(data)
