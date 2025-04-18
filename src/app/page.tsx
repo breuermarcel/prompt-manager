@@ -28,7 +28,11 @@ export default function Home() {
 
   const filterByCategory = (category: string) => {
     setSelectedCategory(category);
-    setFilteredPrompts(category === "Alle" ? prompts : prompts.filter((p) => p.category === category));
+    setFilteredPrompts(
+      category === "Alle"
+        ? prompts
+        : prompts.filter((p) => p.category === category),
+    );
   };
 
   const copyToClipboard = (text: string) => {
@@ -43,11 +47,11 @@ export default function Home() {
       <h1 className="mb-6 font-bold text-3xl text-center">Prompt Manager</h1>
 
       <p className="mx-auto mb-6 max-w-2xl text-gray-600 text-center">
-        Der Prompt Manager bietet eine kuratierte Sammlung von <b>ChatGPT-Prompts</b>,
-        die in Kategorien unterteilt sind. Nutzer können Prompts durchsuchen,
-        direkt mit einem spezialisierten GPT testen oder den Prompt für eigene Zwecke
-        in die Zwischenablage kopieren. Ideal für effiziente AI-Workflows und
-        kreative Inspiration!
+        Der Prompt Manager bietet eine kuratierte Sammlung von{" "}
+        <b>ChatGPT-Prompts</b>, die in Kategorien unterteilt sind. Nutzer können
+        Prompts durchsuchen, direkt mit einem spezialisierten GPT testen oder
+        den Prompt für eigene Zwecke in die Zwischenablage kopieren. Ideal für
+        effiziente AI-Workflows und kreative Inspiration!
       </p>
 
       {/* Categories */}
@@ -56,8 +60,11 @@ export default function Home() {
           <button
             key={category}
             onClick={() => filterByCategory(category)}
-            className={`px-4 py-2 rounded-lg cursor-pointer whitespace-nowrap ${selectedCategory === category ? "bg-green-800 text-white" : "bg-gray-200 dark:bg-gray-800"
-              }`}
+            className={`px-4 py-2 rounded-lg cursor-pointer whitespace-nowrap ${
+              selectedCategory === category
+                ? "bg-green-800 text-white"
+                : "bg-gray-200 dark:bg-gray-800"
+            }`}
           >
             {category}
           </button>
@@ -72,7 +79,9 @@ export default function Home() {
           return (
             <div key={index} className="shadow p-4 border rounded-lg">
               <h2 className="font-bold text-lg">{prompt.title}</h2>
-              <p className="text-gray-700 dark:text-gray-400">{prompt.description}</p>
+              <p className="text-gray-700 dark:text-gray-400">
+                {prompt.description}
+              </p>
               <div className="flex space-x-2 mt-3">
                 <button
                   onClick={() => copyToClipboard(prompt.prompt)}
@@ -83,13 +92,14 @@ export default function Home() {
 
                 {isLinkValid && (
                   <a
-                    href={isLinkValid ? prompt.gpt_link : '#'}
+                    href={isLinkValid ? prompt.gpt_link : "#"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`px-4 py-2 rounded ${isLinkValid
-                      ? "bg-green-800 text-white cursor-pointer"
-                      : "bg-green-100 dark:text-gray-800 text-gray-500 cursor-not-allowed"
-                      }`}
+                    className={`px-4 py-2 rounded ${
+                      isLinkValid
+                        ? "bg-green-800 text-white cursor-pointer"
+                        : "bg-green-100 dark:text-gray-800 text-gray-500 cursor-not-allowed"
+                    }`}
                     onClick={(e) => !isLinkValid && e.preventDefault()}
                   >
                     Testen

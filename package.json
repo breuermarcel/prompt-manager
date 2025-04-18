@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prettier": "npx prettier 'src/**/*.{js,ts,tsx,mjs,cjs,json}' --write",
     "postbuild": "next-sitemap"
   },
   "dependencies": {
