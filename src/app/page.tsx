@@ -1,53 +1,53 @@
-"use client";
+'use client'
 
-import { useState, useEffect } from "react";
-import { Prompt } from "../types/prompt";
-import { motion } from "framer-motion";
+import { useState, useEffect } from 'react'
+import { Prompt } from '../types/prompt'
+import { motion } from 'framer-motion'
 
 export default function Home() {
-  const [prompts, setPrompts] = useState<Prompt[]>([]);
-  const [filteredPrompts, setFilteredPrompts] = useState<Prompt[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>("Alle");
-  const [copyMessage, setCopyMessage] = useState<string | null>(null);
+  const [prompts, setPrompts] = useState<Prompt[]>([])
+  const [filteredPrompts, setFilteredPrompts] = useState<Prompt[]>([])
+  const [categories, setCategories] = useState<string[]>([])
+  const [selectedCategory, setSelectedCategory] = useState<string>('Alle')
+  const [copyMessage, setCopyMessage] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch("/prompts.json")
+    fetch('/prompts.json')
       .then((res) => res.json())
       .then((data: Prompt[]) => {
-        setPrompts(data);
-        setFilteredPrompts(data);
+        setPrompts(data)
+        setFilteredPrompts(data)
 
         const uniqueCategories = [
-          "Alle",
+          'Alle',
           ...new Set(data.map((prompt) => prompt.category)),
-        ];
-        setCategories(uniqueCategories);
-      });
-  }, []);
+        ]
+        setCategories(uniqueCategories)
+      })
+  }, [])
 
   const filterByCategory = (category: string) => {
-    setSelectedCategory(category);
+    setSelectedCategory(category)
     setFilteredPrompts(
-      category === "Alle"
+      category === 'Alle'
         ? prompts
-        : prompts.filter((p) => p.category === category),
-    );
-  };
+        : prompts.filter((p) => p.category === category)
+    )
+  }
 
   const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopyMessage("Prompt erfolgreich kopiert! ✅");
+    navigator.clipboard.writeText(text)
+    setCopyMessage('Prompt erfolgreich kopiert! ✅')
 
-    setTimeout(() => setCopyMessage(null), 2000);
-  };
+    setTimeout(() => setCopyMessage(null), 2000)
+  }
 
   return (
     <div className="relative mx-auto p-6 max-w-4xl">
       <h1 className="mb-6 font-bold text-3xl text-center">Prompt Manager</h1>
 
       <p className="mx-auto mb-6 max-w-2xl text-gray-600 text-center">
-        Der Prompt Manager bietet eine kuratierte Sammlung von{" "}
+        Der Prompt Manager bietet eine kuratierte Sammlung von{' '}
         <b>ChatGPT-Prompts</b>, die in Kategorien unterteilt sind. Nutzer können
         Prompts durchsuchen, direkt mit einem spezialisierten GPT testen oder
         den Prompt für eigene Zwecke in die Zwischenablage kopieren. Ideal für
@@ -62,8 +62,8 @@ export default function Home() {
             onClick={() => filterByCategory(category)}
             className={`px-4 py-2 rounded-lg cursor-pointer whitespace-nowrap ${
               selectedCategory === category
-                ? "bg-green-800 text-white"
-                : "bg-gray-200 dark:bg-gray-800"
+                ? 'bg-green-800 text-white'
+                : 'bg-gray-200 dark:bg-gray-800'
             }`}
           >
             {category}
@@ -74,7 +74,7 @@ export default function Home() {
       {/* Prompt Cards */}
       <div className="gap-4 grid md:grid-cols-2">
         {filteredPrompts.map((prompt, index) => {
-          const isLinkValid = prompt.gpt_link.trim().length > 0;
+          const isLinkValid = prompt.gpt_link.trim().length > 0
 
           return (
             <div key={index} className="shadow p-4 border rounded-lg">
@@ -92,13 +92,13 @@ export default function Home() {
 
                 {isLinkValid && (
                   <a
-                    href={isLinkValid ? prompt.gpt_link : "#"}
+                    href={isLinkValid ? prompt.gpt_link : '#'}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`px-4 py-2 rounded ${
                       isLinkValid
-                        ? "bg-green-800 text-white cursor-pointer"
-                        : "bg-green-100 dark:text-gray-800 text-gray-500 cursor-not-allowed"
+                        ? 'bg-green-800 text-white cursor-pointer'
+                        : 'bg-green-100 dark:text-gray-800 text-gray-500 cursor-not-allowed'
                     }`}
                     onClick={(e) => !isLinkValid && e.preventDefault()}
                   >
@@ -107,7 +107,7 @@ export default function Home() {
                 )}
               </div>
             </div>
-          );
+          )
         })}
       </div>
 
@@ -123,5 +123,5 @@ export default function Home() {
         </motion.div>
       )}
     </div>
-  );
+  )
 }
